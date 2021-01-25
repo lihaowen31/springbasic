@@ -5,14 +5,14 @@ package demo.reflect;
  * 获取Class对象的三种方式,且三种方式获取的Class对象是完全相同的
  * 在运行期间, 一个类, 只有一个与之对应的Class对象产生
  */
-public class ReflectTarger {
+public class ReflectTarger extends ReflectTargetOrigin{
     /**构造函数*/
     //1.默认的带参构造函数
     ReflectTarger(String str){
         System.out.println("默认的带参构造方法：" + str);
     }
     //2.无参构造函数
-    ReflectTarger(){
+    public ReflectTarger(){
         System.out.println("公有的无参构造函数");
     }
     //3.公有带参构造函数
@@ -32,8 +32,21 @@ public class ReflectTarger {
         System.out.println("私有构造方法：" + index);
     }
 
+    //字段
+    public String name;
+    protected int index;
+    char type;
+    private String targetInfo;
 
-
+    @Override
+    public String toString() {
+        return "ReflectTarger{" +
+                "name='" + name + '\'' +
+                ", index=" + index +
+                ", type=" + type +
+                ", targetInfo='" + targetInfo + '\'' +
+                '}';
+    }
 
     public static void main(String[] args) throws ClassNotFoundException {
         ReflectTarger target = new ReflectTarger();
