@@ -38,6 +38,21 @@ public class ReflectTarger extends ReflectTargetOrigin{
     char type;
     private String targetInfo;
 
+    //成员方法
+    public void show1(String s){
+        System.out.println("调用了公有的，参数为String的show1(): s = " + s);
+    }
+    protected void show2(){
+        System.out.println("调用了受保护的，无参的show2()");
+    }
+    void show3(){
+        System.out.println("调用了默认的，无参的show3()");
+    }
+    private String show4(int index){
+        System.out.println("调用了私有的，并且有返回值的，参数为int类型的show4(), index = " + index);
+        return "show4result";
+    }
+
     @Override
     public String toString() {
         return "ReflectTarger{" +
